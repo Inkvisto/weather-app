@@ -1,0 +1,122 @@
+.main{
+    display: grid;
+    height: 200px;
+    width: 420px;
+    position: relative;
+    bottom: 40px;
+    .newLocation{
+       
+        height: 200px;
+        padding: 20px;
+        &:nth-child(0){
+            display: flex;
+        
+            justify-content: space-between;
+        }
+       
+
+    }
+   
+.buttonMain{
+  form{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 140px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+}
+
+    .addInput{
+        &:focus{
+            outline: none;
+        }
+        width: 250px;
+        height: 25px;
+        border:none;
+        background-color:rgb(206, 191, 191);
+        border-radius: 10px;
+        
+    }
+    .addButton{
+        height: 50px;
+        width: 280px;
+        border:1px solid rgb(255, 255, 255);
+        border-radius: 25px;
+        background-color: rgb(255, 167, 167);
+        color: rgb(255, 239, 239);
+        font-size: 20px;
+        &:active{
+            position: relative;
+            top: 1px;
+        }
+    }
+}
+
+
+
+
+.emptyAddLocation{
+    height: 350px;
+    width: 420px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.blockContainer{
+    
+        width: 420px;
+        background-color: #fff;
+        border-radius: 15px;
+        
+        margin-bottom:20px;
+  
+    display: flex;
+    justify-content: space-between;
+   
+  
+    
+    i{  
+        background-color: rgb(119, 190, 168);
+        padding: 10px;
+        border-radius: 15px;
+        
+    }
+    
+   
+    p{
+        padding: 10px;
+        align-self: center;
+        font-size: 30px;
+        font-family: 'Noto Sans', sans-serif;
+    }
+    div{
+        font-family: 'Noto Sans', sans-serif;
+        padding: 10px;
+        align-self: center;
+        font-size: 24px;
+    }
+    span{
+        display: flex;
+        margin-right:10px;
+        margin-top: 5px;
+     
+        justify-content: center;
+        svg{
+            align-self: center;
+           
+        }
+        background-color: rgb(212, 212, 212);
+        border-radius: 5px;
+        width:  30px;
+        height: 30px;
+        align-self: center;
+    }
+}
+
+.middleBlock{
+    position: absolute;
+    top:95px;
+    right: 620px;
+}

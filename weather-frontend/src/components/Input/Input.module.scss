@@ -1,0 +1,70 @@
+.flex{
+  display: flex;
+  align-self: center;
+  
+}
+
+.description{
+  display: flex;
+  align-items: center;
+  min-width: 80px;
+  margin-top: 10px;
+
+}
+  .input{
+    position: relative;
+    margin-top: 5%;
+  }
+
+  
+  
+  .text{
+    font-family: 'Noto Sans', sans-serif;
+    position: absolute;
+   align-self: center;
+    top: 20px;
+    left: 25%;
+    
+  }
+  .cityName{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 28px;
+    color:rgb(255, 255, 255);
+  }
+  
+  
+  .name{
+    align-self: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 25px;
+  }
+  
+  .ul{
+    display: flex;
+    li{
+      margin-left: 10px;
+    }
+   
+    
+  }
+  
+  .search{
+    border-radius: 5px;
+   
+    padding: 8px;
+    border: none;
+    &:focus{
+        outline: none;
+    }
+}
+.locationSearch{
+  border-radius: 5px;
+   
+  padding: 8px;
+  border: none;
+  &:focus{
+      outline: none;
+  }
+    background-color : rgb(56, 156, 135); 
+
+}

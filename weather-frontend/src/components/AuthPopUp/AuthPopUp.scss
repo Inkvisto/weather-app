@@ -1,0 +1,149 @@
+
+.content{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form{
+    padding: 25px;
+    height: 250px;
+    width: 380px;
+   p{
+       font-family: 'Noto Sans';
+       
+   }
+}
+.loginButton{
+    position: absolute;
+    right: -100px;
+    width: 180px;
+    background-color: #ffa7a7;
+    color: #fff;
+    font-family: 'Noto Sans';
+    font-size: 22px;
+    padding: 10px 40px;
+    border:none;
+    border-radius: 15px;
+    margin-top: 30px;
+    box-shadow: 10px 7px 10px rgb(0 0 0 / 20%);
+    &:hover{
+        color: #ce6a6a;
+    }
+ 
+}
+
+.displayNoneLoginButton{
+    display: none;
+}
+
+.registerText{
+    font-family: 'Noto Sans';
+    font-size: 20px;
+    color:grey;
+    display: flex; 
+    justify-content: center;  
+}
+
+.registerLink{
+    span{
+        color:#1976d2; 
+    }
+       
+    
+      
+}
+
+.loginText{
+    font-family: 'Noto Sans';
+    font-size: 20px;
+    color:grey;
+    display: flex; 
+    justify-content: center;  
+}
+
+.avatar{
+    position: relative;
+    top:25px;
+    left: 170px;
+
+}
+
+.loginLink{
+    text{
+        color:#1976d2; 
+    }
+}
+
+.usernameContainer{
+    display: flex; 
+    justify-content: center;  
+}
+
+.emailContainer{
+
+      
+    margin-top: 25px;
+    display: flex; 
+    justify-content: center;  
+}
+
+.passwordContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.requiredError{
+    font-family: 'Noto Sans';
+    font-size: 15px;
+    position: absolute;
+    margin: 20px;
+}
+
+
+
+
+
+
+#emailInput{
+    width: 320px;
+    padding: 12px;
+    font-size: 16px;
+    
+}
+
+#passwordInput{
+    padding: 12px;
+    font-size: 16px;
+    width: 320px;
+}
+
+#usernameInput{
+    width: 320px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.error{
+    color:red;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 14px;
+    
+}
+
+.logoutButton {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.menu{
+   position: relative;
+   right: 100px;
+}

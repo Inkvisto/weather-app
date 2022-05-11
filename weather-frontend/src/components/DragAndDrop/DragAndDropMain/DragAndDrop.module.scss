@@ -1,0 +1,67 @@
+.container{
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 1fr 1fr;
+    grid-template-rows: 1fr 1.3fr;
+    gap: 40px;
+}
+
+.sideSheetOnRightContainer{
+    display: grid;
+    grid-template-columns: 0.1fr 0.6fr 1fr 1.4fr;
+    grid-template-rows: 1fr 1.3fr;
+    gap: 40px;
+}
+
+.sideSheetContainer{
+    display: grid;
+    height: 40vh;
+    align-content: flex-end;
+}
+
+
+
+
+.inputContainer{
+    display: grid;
+    align-content: flex-end;
+    justify-content: center;
+}
+
+
+.falloutWeatherContainer{
+    display: grid;
+    align-content: flex-end;
+    justify-content: center;
+   
+}
+
+
+
+.dayContainer{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+.dailyWeatherContainer{
+    display: grid;
+    align-content: center;
+    
+   
+}
+
+.emptyBlockContainer{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.addLocationContainer{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+

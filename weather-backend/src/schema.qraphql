@@ -1,0 +1,74 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AddLocation {
+  createdAt: Timestamp!
+  icon: String!
+  id: ID!
+  place: String!
+  temperature: Int!
+  user: AddLocation!
+  userId: String!
+}
+
+type Auth {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+input AuthUserInput {
+  email: String!
+  password: String!
+}
+
+input CreateAddLocationInput {
+  icon: String!
+  place: String!
+  temperature: Int!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createLocation(locationData: CreateAddLocationInput!): AddLocation!
+  deleteLocation: AddLocation!
+  login(data: LoginInput!): Auth!
+  register(data: SignupInput!): Auth!
+}
+
+type Query {
+  getAuthenticatedUser(user: AuthUserInput!): User!
+  getByEmail(email: String!): User!
+  getUserFromToken(token: TokenInput!): User!
+  getUsers: User!
+}
+
+input SignupInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+"""
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+input TokenInput {
+  authToken: String!
+}
+
+type User {
+  createdAt: Timestamp!
+  email: String!
+  id: ID!
+  password: String!
+  searchValue: String
+  updatedAt: Timestamp!
+  username: String!
+}

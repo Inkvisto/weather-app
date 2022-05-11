@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AddLocation {
+  id: ID!
+  createdAt: String!
+  icon: String!
+  place: String!
+  user: User!
+  userId: String!
+}
+
+type User {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  email: String!
+  username: String!
+  password: String!
+  searchValue: AddLocation!
+}
+
+type Query {
+  getByEmail(email: String!): User!
+}

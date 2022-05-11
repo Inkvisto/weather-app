@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "AddLocation" ALTER COLUMN "temperature" SET DATA TYPE DOUBLE PRECISION;

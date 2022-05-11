@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    height: 280px;
+   
+    border-radius: 20px;
+}
+
+.leftSide{
+    width:50%;
+    background-color: rgb(241, 169, 169);
+    color: #fff;
+    border-radius: 40px 0px 0px 40px;
+    box-shadow: 20px 20px 30px rgba(0,0,0,0.2);
+}
+.rightSide{
+width:50%;
+  background-color: rgb(85, 141, 122);
+  color: #fff;
+  border-radius: 0px 40px 40px 0px;
+  box-shadow: 30px 20px 30px rgba(0,0,0,0.2);
+
+}
+
+.wind{
+display: flex;
+justify-content: space-between;
+padding: 15px;
+font-size: 25px;
+font-family: 'Noto Sans', sans-serif;
+li{
+  margin-top: 5px;
+}
+}
+
+.speedMarks{
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
+
+
+.main{
+  display: flex;
+  justify-content: space-between;
+padding: 15px;
+font-size: 25px;
+font-family: 'Noto Sans', sans-serif;
+li{
+  margin-top: 5px;
+}
+}

@@ -1,0 +1,98 @@
+
+
+
+.sideSheetBlock{
+    border:5px solid rgb(58, 204, 214);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 220px;
+    width: 110px;
+    border-radius: 0px 40px 40px 0px;
+    margin-bottom: 10px;
+}
+
+.daySheetBlock{
+    border:5px solid rgb(58, 204, 214);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 220px;
+    width: 110px;
+    border-radius: 40px 0px 0px 40px;
+    position: absolute;
+    top: 100px;
+    right: 70px;
+}
+
+
+
+.inputBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 250px;
+    border-radius: 40px;
+    width: 250px;
+}
+
+
+
+.falloutWeatherBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 240px;
+    width: 500px;
+    border-radius: 40px;
+}
+
+
+
+.dayBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 240px;
+    width: 400px;
+    
+    border-radius: 40px;
+}
+
+
+
+
+.dailyWeatherBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 240px;
+    margin-left:-40px ;
+    border-radius: 40px;
+    width:400px;
+}
+
+
+.emptyBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    border-radius: 20px;
+    height: 240px;
+    width: 400px;
+    margin-left:-40px ;
+    border-radius: 40px;
+}
+
+
+.addLocationBlock{
+    border:5px solid rgb(43, 217, 230);
+    background-color: #fff;
+    height: 280px;
+    width: 400px;
+    margin-left:-40px ;
+    border-radius: 40px;
+
+}
+
+.purple{
+    color:purple;
+    background-color: purple;
+}
