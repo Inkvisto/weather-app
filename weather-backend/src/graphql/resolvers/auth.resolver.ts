@@ -1,13 +1,12 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { Auth } from "../models/auth.model";
 import { AuthService } from "../../auth/auth.service";
-import { LoginInput } from "../models/inputs/login.input";
-import { SignupInput } from "../models/inputs/signup.input";
-import { TokenInput } from "../models/inputs/token.input";
-import { User } from "../../user/user.model";
-import { AuthUserInput } from "../models/inputs/auth-user.input";
 
-@Resolver(()=>Auth)
+import { SignupInput } from "../models/inputs/signup.input";
+import { UserModel } from "../models/user.model";
+import { LoginInput } from "../models/inputs/logininput";
+
+@Resolver(()=>UserModel)
 export class AuthResolver {
     constructor(
         private readonly auth:AuthService
@@ -30,16 +29,9 @@ export class AuthResolver {
     }
 
 
-    @Query(()=> User)
-    async getUserFromToken(@Args('token') {authToken}:TokenInput){
-        const token = {authToken}
-        return await this.auth.getUserFromToken(token)
-       
-        
-    }
 
-    @Query(()=>User)
-    async getAuthenticatedUser(@Args('user') {email,password}:AuthUserInput):Promise<User>{
+    @Query(()=>Auth)
+    async getAuthenticatedUser(@Args('user') {email,password}:LoginInput):Promise<UserModel>{
       return await this.auth.getAuthenticatedUser(email,password)
       
     }

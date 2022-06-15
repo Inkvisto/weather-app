@@ -1,28 +1,29 @@
-import { Body, Controller, Get, Post, Request, UseGuards } from "@nestjs/common"
-
-
-import { PrismaService } from "src/prisma/prisma.service"
+import { Body, ClassSerializerInterceptor, Controller, Get, Post, UseGuards, UseInterceptors } from "@nestjs/common"
 import { UserIdArgs } from "../graphql/models/args/userLocations.input"
 import { UserService } from "./user.service"
+import { UserEntity } from "src/decorators/user.decorator"
+import { UserModel } from "src/graphql/models/user.model"
 
- 
- 
- @Controller('user')
- export class UserController {
-   constructor(
-     private readonly userService: UserService,
-     private readonly prisma:PrismaService
-   ) {}
+import JwtAuthGuard from "src/guards/jwt-auth.guard"
 
 
-  @Get('/all')
-  async getUser(){
-    return this.userService.getUsers()
+
+
+@Controller('user')
+@UseInterceptors(ClassSerializerInterceptor)
+export class UserController {
+  constructor(private readonly userService: UserService) { }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/getUser')
+  getUserByToken(@UserEntity() user:UserModel) {
+    return new UserModel(user)
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('/delete')
-  async deleteUser(@Body() id:UserIdArgs ){
-    return this.userService.deleteUser(id)
+  async deleteUser(@UserEntity() user:UserModel) {
+    return this.userService.deleteUser(user)
   }
 }
 

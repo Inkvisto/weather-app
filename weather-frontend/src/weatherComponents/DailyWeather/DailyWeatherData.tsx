@@ -7,44 +7,31 @@ import styles from './DailyWeatherData.module.scss'
 
 
 export const DailyWeatherData = () => {
-const filteredTemperature = useSelector((state:RootState)=>state.filteredTemperature)
+    const dailyTemperature = useSelector((state: RootState) => state.filteredTemperature.dailyWeather)
 
-let arr:Array<JSX.Element> = []
-
-
-
+    const daily = useSelector((state: RootState) => state.dailyWeather)
+    let arr: JSX.Element[] = []
 
 
-filteredTemperature.dailyWeather.forEach((e,i,a)=>{
-
-        const delimiterValue:string[] = []
-        const unixTimestamp = a[3][i] * 1000
-        const date = new Date(unixTimestamp)
-        const day = date.toLocaleString(language,{'weekday':'long'}) 
-        const upperLetterDay = day.charAt(0).toUpperCase() + day.slice(1)
-if(typeof a[0][1][i]  !== 'undefined'){
-        const secondDegreeArray:String = a[0][1][i] 
-       if(secondDegreeArray.charAt(0) === '-'){
-        delimiterValue.push('|')
-       }else{
-        delimiterValue.push(' - ')
-       }
-    }else{}
-
-
-        return arr.push(<li>
-            <i><img src={`/icons/${a[1][i]}.png`} /></i>
-            <div>
-                <p>{upperLetterDay}</p>
-                <p> {a[2][i]}</p>
-            </div>
-        <span>{[a[0][0][i],delimiterValue,a[0][1][i]]}</span>
-        </li> )
-    })
-
-    return(
-        <ul className={styles.main}>
-            {arr.slice(0,-1)}    
+    return (
+        <ul className={styles.main}>{
+            daily.dataTime &&
+            daily.dataTime.map((e:number, i:number) => {
+                const day = new Date(daily.dataTime[i] * 1000).toLocaleString(language, { 'weekday': 'long' })
+                const upperLetterDay = day.charAt(0).toUpperCase() + day.slice(1)
+                arr.push(
+                    <li>
+                        <figure><img src={`/icons/${daily.icons[i]}.png`} /></figure>
+                        <div>
+                            <span>{upperLetterDay}</span>
+                            <span> {daily.description[i]}</span>
+                        </div>
+                        <p>{dailyTemperature && [dailyTemperature.temperature[i], ' - ', dailyTemperature.temperature[i + 3]]}</p>
+                    </li>
+                )
+            })
+        }
+            {arr}
         </ul>
     )
 }

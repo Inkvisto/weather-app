@@ -1,30 +1,25 @@
 
-import { Args, Query, Resolver } from "@nestjs/graphql";
+import { Query, Resolver } from "@nestjs/graphql";
 import { PrismaService } from "../../prisma/prisma.service";
 import { UserService } from "../../user/user.service";
-import { User } from "../../user/user.model";
+import { UserModel } from "../models/user.model";
+import { UserEntity } from "src/decorators/user.decorator";
+import { UseGuards } from "@nestjs/common";
+import { GqlAuthGuard } from "src/guards/graphql-jwt-auth.guard";
 
 
-@Resolver(()=>User)
+@Resolver(() => UserModel)
 export class userResolver {
     constructor(
-        private user:UserService,
-        private prisma:PrismaService
-    ){}
+        private userService: UserService,
+        private prisma: PrismaService
+    ) { }
 
-    
-    @Query(() => User)
-    async getByEmail(@Args('email', { type: () => String }) email: string){
-        return this.prisma.user.findUnique({where:{email:email}})
+
+    @UseGuards(GqlAuthGuard)
+    @Query(() => UserModel)
+    getUserByToken(@UserEntity() user) {
+        return user
     }
-
-    @Query(() => User)
-    async getUsers(){
-        return this.user.getUsers()
-    }
-
-
-
-
 }
 

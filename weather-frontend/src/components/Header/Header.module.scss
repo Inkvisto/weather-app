@@ -1,22 +1,114 @@
-.container{
-   height: 480px;
-   padding-top: 1px;
-   
+
+
+.header {
+    height: 50%;
+    padding-top: 1px;
+
 }
-.sideSheet{
-    top:140px;
+
+.sideSheet {
+    top: 140px;
     z-index: 1;
     position: absolute;
     width: 115px;
-    border-radius: 0px 40px 40px 0px;
-    background-color: #429179;
-    box-shadow: 45px 5px 35px -20px rgb(0,0,0,0.2);
+}
+
+.layer {
+    background-color: rgba(159, 199, 186);
+    margin: 70px;
+    position: relative;
+    width: 88%;
+    height: 340px;
+    border-radius: 40px;
+    box-shadow: 20px 5px 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    height: 320px;
+}
+
+.location {
+    display: block;
+    position: relative;
+    padding: 40px 40px 40px 70px;
+    z-index: 1;
+    width: 335px;
+}
+
+.fallout {
+    z-index: 1;
+    align-self: flex-end;
+    position: relative;
+    top: 50px;
+    width: 38%
+}
+
+.auth {
+    z-index: 1;
+    position: relative;
+    left: 30px;
+}
+
+.date {
+    display: flex;
+    font-family: 'Noto Sans', sans-serif;
+    z-index: 1;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+   
+    position: absolute;
+    bottom: 40px;
+    right: 70px;
+
+    h1 {
+        margin-right: 10px;
+        font-size: 55px;
+
+    }
+
+    h2 {
+        font-size: 20px;
+
+        p {
+            font-size: 28px;
+            margin-top: 3%;
+        }
+        
+    }
+
+}
+
+.filter {
+    margin-top: 12%;
+    margin-left: 35px;
+}
+
+.wrongCityName {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-top: 120px;
+    text-indent: 2px;
+
+}
+
+.emptyCityName {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-top: 120px;
+    margin-left: 55px;
+    text-indent: 2px;
+
 }
 
 .background {
-    background: linear-gradient(to right,rgba(159, 199, 186) , rgba(159, 199, 186,.4) 80%),url('https://images.unsplash.com/photo-1502252430442-aac78f397426?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80');
+    background: linear-gradient(to right, rgba(159, 199, 186), rgba(159, 199, 186, .4) 80%), url('https://images.unsplash.com/photo-1502252430442-aac78f397426?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80');
     position: absolute;
-    top:86px;
+    top: 86px;
     right: 117px;
     height: 340px;
     width: 1100px;
@@ -24,117 +116,31 @@
     content: '';
 }
 
-.layer {
-    background-color: rgba(159, 199, 186);
-    margin: 70px;
-    position: relative;
-    width: 85%;
-    height: 340px;
-    border-radius: 40px;
-    box-shadow: 20px 5px 20px 2px rgba(0,0,0,0.2);
-}
 
-.location{
-    display: block;
-    position: relative;
-    padding:40px 90px;
-    z-index: 1;
-    width: 335px;
-}
-.text{
-    font-family: Roboto;
-}
-
-
-
-
-.search{
-    border-radius: 5px;
-   
-    padding: 8px;
-    border: none;
-    &:focus{
-        outline: none;
+@media (max-width:1360px){
+    .background{
+        display:none;
     }
-}
-
-
-input
-{
-    font-size:16px;
-    width: 170px;
-    margin-left: 10px;
-}
-
-.fallout{
-    z-index: 1;
-    position: absolute;
-    top: 100px;
-    left:34%; 
-    width: 38%
-}
-
-.flexContainer{
-    z-index: 1;
-}
-
-
-
-.date{
-    display: flex;
-    font-family: 'Noto Sans', sans-serif;
-    z-index: 1;
-    color:#fff;
-    align-items: center;
-    margin-top: 170px;
-    h1{
-       margin-right: 10px;
-        font-size: 55px;
-       
+    .layer{
+        background: linear-gradient(to right, rgba(159, 199, 186), rgba(159, 199, 186, .4) 80%), url('https://images.unsplash.com/photo-1502252430442-aac78f397426?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80');
     }
-    h2{ 
-        font-size: 20px;
-        p{
-                font-size: 28px;
-            margin-top: 3%;
-        }
-    }
-}
+ }
 
 
-
-.flex{
-    display: flex;
-    justify-content: space-between;
-    height: 320px;
-}
-
-
-
-.temperatureContainer{
-    position: relative;
-    z-index: 1;
-}
-
-.filter{
-   margin-top: 12%;
-   margin-left: 35px; 
-}
-
-.wrongCityName{
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 20px;
-    line-height: 1.4;
-    margin-top: 120px;
-    text-indent:2px;
+ @media ( max-height:900px ){
+    .header {
+        height: 47%;
     
-}
-.emptyCityName{
-       font-family: 'Noto Sans', sans-serif;
-    font-size: 22px;
-    line-height: 1.4;
-    margin-top: 120px;
-    margin-left:55px;
-    text-indent:2px;
-    color:rgb(255, 255, 255);
-}
+    }
+    .sideSheet {
+        top: 100px;
+    }
+    .layer {
+        margin:30px 70px;
+    }
+    .background {
+        top: 46px;
+        right: 140px; 
+    }
+ }
+ 

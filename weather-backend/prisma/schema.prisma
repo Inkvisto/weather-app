@@ -9,22 +9,23 @@ datasource db {
 }
 
 model User {
-  id          String    @id @default(cuid())
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt 
-  email       String    @unique
-  username    String
-  password    String
-  searchValue AddLocation[]
+  id            String        @id @default(cuid())
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt 
+  email         String        @unique
+  username      String
+  password      String
+  locations   Location[] 
+  refreshToken  String?
 }
 
 
-model AddLocation {
+model Location {
   id          String     @default(cuid()) @id
   createdAt   DateTime    @default(now())
   icon        String   
   temperature Float
-  place       String     @unique
+  place       String     
   user        User       @relation(fields: [userId], references: [id], onDelete:Cascade)
   userId      String
 }

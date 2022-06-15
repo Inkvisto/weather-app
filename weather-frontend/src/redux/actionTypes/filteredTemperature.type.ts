@@ -1,8 +1,16 @@
 
 export interface FilteredTemperature {
-    dailyWeather:[],
-    currentTemperature:string[][],
-    currentNames:[],
-    detailedCurrentTemperature:[],
-    location:[]
+    dailyWeather: {
+        temperature: string[];
+        description: string[];
+        dataTime: number[];
+        icons: string[];
+    },
+    current: {
+        temperature: number;
+    },
+    currentNames: string[],
+    location: {
+        temperature: string[]
+    }
 }

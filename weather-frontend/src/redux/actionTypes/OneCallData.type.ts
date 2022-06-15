@@ -1,5 +1,5 @@
 
-export interface OneCallData {
+export type OneCallData = {
     daily:{
             clouds:number;
             dew_point:number;

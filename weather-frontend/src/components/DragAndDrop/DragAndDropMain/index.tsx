@@ -23,7 +23,7 @@ import styles from './DragAndDrop.module.scss'
   
     
 
-    return(<div className={styles[containerStyles]}>
+    return (<div className={styles[containerStyles]}>
       <div className={styles.sideSheetContainer}
         onDragOver={(e) => onDragOver(e)}
         onDrop={(e) => {

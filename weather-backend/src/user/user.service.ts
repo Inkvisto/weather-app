@@ -1,28 +1,13 @@
-import { HttpException, HttpStatus, Injectable, UseGuards } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import {
-  User,
-  Prisma
-} from '@prisma/client';
-import JwtAuthGuard from '../guards/jwt-auth.guard';
+import { Prisma } from '@prisma/client';
 import { UserIdArgs } from '../graphql/models/args/userLocations.input';
+import { UserModel } from 'src/graphql/models/user.model';
 
 
 @Injectable()
 export class UserService {
-  constructor(private prisma: PrismaService) {}
-
-  @UseGuards(JwtAuthGuard)
-  async getByEmail(email:string) {
-    const user = await this.prisma.user.findUnique({where:{
-      email:email
-    }});
-    if(user){
-      return user
-    }
-    throw new HttpException('User with this email does not exist', HttpStatus.NOT_FOUND);
-  }
-
+  constructor(private prisma: PrismaService) { }
 
   async user(userWhereUniqueInput: Prisma.UserWhereUniqueInput) {
     return this.prisma.user.findUnique({
@@ -30,18 +15,13 @@ export class UserService {
     });
   }
 
-  @UseGuards(JwtAuthGuard)
-  async getUsers(){
-      return this.prisma.user.findMany()
-  }
-  @UseGuards(JwtAuthGuard)
   async users(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.UserWhereUniqueInput;
     where?: Prisma.UserWhereInput;
     orderBy?: Prisma.UserOrderByWithRelationInput;
-  }): Promise<User[]> {
+  }): Promise<UserModel[]> {
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.user.findMany({
       skip,
@@ -63,11 +43,12 @@ export class UserService {
     });
   }
 
-  async deleteUser(user:UserIdArgs) {
+  async deleteUser(user: UserModel) {
     return await this.prisma.user.delete({
-      where:{
-        id:user.id
+      where: {
+        id: user.id
       }
     });
   }
+  
 }

@@ -7,18 +7,18 @@ const config: Config = {
   },
   cors: {
     enabled: true,
-    
   },
   security: {
-    expiresIn: '90m',
-    refreshIn: '7d',
+    expiresIn: '15m',
+    refreshIn: '1d',
     bcryptSaltOrRound: 10,
   },
-  graphql:{
-    playgroundEnabled:true,
-    debug:true,
-    schemaDestination:'./src/schema.qraphql',
-    sortSchema:true,
+  graphql: {
+    playgroundEnabled: false,
+    debug: true,
+    schemaDestination: './src/schema.qraphql',
+    sortSchema: true,
+    plugins: [ApolloServerPluginLandingPageLocalDefault()]
   }
 };
 

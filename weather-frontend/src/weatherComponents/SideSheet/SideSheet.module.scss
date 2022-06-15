@@ -1,78 +1,81 @@
+@import '../animation.module.scss';
+
+
 .container{
-    
+    background-color: #429179;
+    border-radius: 0px 40px 40px 0px;
+    box-shadow: 45px 5px 35px -20px rgb(0, 0, 0, 0.2);
 }
-
-.icon{
-   position: absolute;
-   top:0px;
-}
-
-.descriptionPart{
+.descriptionPart {
     height: 120px;
     background-color: rgb(138, 196, 177);
     border-radius: 0px 40px 0px 0px;
-    p{
-      margin: 55px 0px 0px 18px;
-      font-family: 'Noto Sans',sans-serif;
-     color: #346b5a;
-      font-size: 15px;
-      
+
+    figcaption {
+        display: flex;
+        justify-content: center;
+        font-family: 'Noto Sans', sans-serif;
+        color: #346b5a;
+        font-size: 15px;
+        position: relative;
+        top: 60px;
     }
 }
 
-   
-    .topEdge {
-        background-color: rgb(138, 196, 177);
-        width: 15px;
-        height: 30px;
-        top: -15px;
-        /* = width / 1.41 */
-        position: relative;
-        //overflow: hidden;
-     
-    }
-    
-    .topEdge:before {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 30px;
-        border-radius: 20px;
-        background-color: rgb(242, 242, 242);
-        left: 0px;
-        bottom: 15px;
-        z-index: 1;
-    }
+.topEdge {
+    background-color: rgb(138, 196, 177);
+    width: 15px;
+    height: 30px;
+    top: -15px;
+    position: relative;
+}
 
-    .bottomEdge {
-        background-color: #429179;
-        width: 15px;
-        height: 30px;
-        top: 105px;
-        position: relative;
+.topEdge:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(242, 242, 242);
+    left: 0px;
+    bottom: 15px;
+    z-index: 1;
+}
 
-     
-    }
-    
-    .bottomEdge:before {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 30px;
-        border-radius: 20px;
-        background-color: rgb(242, 242, 242);
-        left: 0px;
-        top: 15px;
-        z-index: 1;
-    }
+.icon {
+    position: absolute;
+    top: 0px;
+}
 
-.temperaturePart{
+.temperaturePart {
     height: 120px;
-    p{
-        color:#fff;
-        font-family: 'Noto Sans',sans-serif;
+
+    p {
+        color: #fff;
+        font-family: 'Noto Sans', sans-serif;
         font-size: 28px;
-        margin:10px 0px 0px 20px;
-       
+        margin: 10px 0px 0px 20px;
+
     }
+    
+}
+
+.bottomEdge {
+    background-color: #429179;
+    width: 15px;
+    height: 30px;
+    top: 105px;
+    position: relative;
+}
+
+.bottomEdge:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(242, 242, 242);
+    left: 0px;
+    top: 15px;
+    z-index: 1;
 }

@@ -1,122 +1,115 @@
-.main{
-    display: grid;
-    height: 200px;
-    width: 420px;
-    position: relative;
-    bottom: 40px;
-    .newLocation{
-       
-        height: 200px;
-        padding: 20px;
-        &:nth-child(0){
-            display: flex;
-        
-            justify-content: space-between;
-        }
-       
+@import '../animation.module.scss';
 
-    }
-   
-.buttonMain{
-  form{
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    height: 140px;
+.container{
+    width: 420px;
     background-color: #fff;
-    border-radius: 20px;
-  }
-}
-
-    .addInput{
-        &:focus{
-            outline: none;
-        }
-        width: 250px;
-        height: 25px;
-        border:none;
-        background-color:rgb(206, 191, 191);
-        border-radius: 10px;
-        
-    }
-    .addButton{
-        height: 50px;
-        width: 280px;
-        border:1px solid rgb(255, 255, 255);
-        border-radius: 25px;
-        background-color: rgb(255, 167, 167);
-        color: rgb(255, 239, 239);
-        font-size: 20px;
-        &:active{
-            position: relative;
-            top: 1px;
-        }
-    }
-}
-
-
-
-
-.emptyAddLocation{
-    height: 350px;
-    width: 420px;
     border-radius: 15px;
-    background-color: #fff;
-}
-
-.blockContainer{
-    
-        width: 420px;
-        background-color: #fff;
-        border-radius: 15px;
-        
-        margin-bottom:20px;
-  
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
-   
-  
-    
-    i{  
+    figure {
         background-color: rgb(119, 190, 168);
         padding: 10px;
         border-radius: 15px;
-        
+
     }
-    
-   
-    p{
+
+    p {
         padding: 10px;
         align-self: center;
         font-size: 30px;
         font-family: 'Noto Sans', sans-serif;
     }
-    div{
+
+    div {
         font-family: 'Noto Sans', sans-serif;
         padding: 10px;
         align-self: center;
         font-size: 24px;
     }
-    span{
+
+    span {
         display: flex;
-        margin-right:10px;
+        margin-right: 10px;
         margin-top: 5px;
-     
+        cursor: pointer;
         justify-content: center;
-        svg{
+
+        svg {
             align-self: center;
-           
+
         }
+
         background-color: rgb(212, 212, 212);
         border-radius: 5px;
-        width:  30px;
+        width: 30px;
         height: 30px;
         align-self: center;
     }
 }
+.main {
+    width: 420px;
+    
+    .buttonMain {
+        form {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            justify-self: flex-end;
+            height: 140px;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+    }
 
-.middleBlock{
-    position: absolute;
-    top:95px;
-    right: 620px;
+    .addButton {
+        height: 50px;
+        width: 280px;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 25px;
+        background-color: rgb(255, 167, 167);
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+
+        &:active {
+            position: relative;
+            top: 1px;
+        }
+
+        &:hover {
+            background-color: rgb(255, 144, 144);
+            ;
+        }
+    }
 }
+
+.middleBlock {
+    position: absolute;
+    top: 550px;
+    right: 750px;
+}
+
+@media (max-width:1780px) {
+    .middleBlock {
+     
+        right: 600px;
+    }
+
+}
+
+@media (max-width:1615px) {
+    .middleBlock {
+        display: none;
+    }
+
+    .blockContainer {
+        margin-bottom: 5px;
+    }
+
+    .rightBlock {
+        margin-top: 20px;
+    }
+}
+
+
+

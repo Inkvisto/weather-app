@@ -1,70 +1,56 @@
-.flex{
+.container {
   display: flex;
-  align-self: center;
-  
 }
 
-.description{
+.description {
   display: flex;
   align-items: center;
   min-width: 80px;
   margin-top: 10px;
+}
+
+.caption {
+  font-family: 'Noto Sans', sans-serif;
+  position: absolute;
+  align-self: center;
+  top: 20px;
+  left: 35%;
 
 }
-  .input{
-    position: relative;
-    margin-top: 5%;
-  }
 
-  
-  
-  .text{
-    font-family: 'Noto Sans', sans-serif;
-    position: absolute;
-   align-self: center;
-    top: 20px;
-    left: 25%;
-    
-  }
-  .cityName{
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 28px;
-    color:rgb(255, 255, 255);
-  }
-  
-  
-  .name{
-    align-self: center;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 25px;
-  }
-  
-  .ul{
-    display: flex;
-    li{
-      margin-left: 10px;
-    }
-   
-    
-  }
-  
-  .search{
-    border-radius: 5px;
-   
-    padding: 8px;
-    border: none;
-    &:focus{
-        outline: none;
-    }
+.cityName {
+  display: flex;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+ h1{
+  max-width: 120px;
+  overflow-wrap:break-word;
+ }
 }
-.locationSearch{
+input {
+  font-size: 16px;
+  width: 170px;
+  margin-left: 10px;
+  position: relative;
+  margin-top: 5%;
+}
+
+.search {
   border-radius: 5px;
-   
   padding: 8px;
   border: none;
-  &:focus{
-      outline: none;
+  &:focus {
+    outline: none;
   }
-    background-color : rgb(56, 156, 135); 
+}
 
+.locationSearch {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  background-color : rgb(56, 156, 135);
 }

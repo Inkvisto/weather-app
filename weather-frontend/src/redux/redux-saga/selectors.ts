@@ -2,7 +2,7 @@ import { RootState } from "../reducers/rootReducer"
 
 export const cityName = (state:RootState) => state.searchValue
 
-export const coords = (state:RootState) => state.data
+export const coords = (state:RootState) => state.data.coord
 
 export const filter = (state:RootState) => state.filter
 

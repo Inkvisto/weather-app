@@ -2,31 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type AddLocation {
+type Auth {
+  accessToken: String!
+  refreshToken: String!
+  user: UserModel!
+}
+
+input CreateLocationInput {
+  icon: String!
+  place: String!
+  temperature: Int!
+}
+
+type Location {
   createdAt: Timestamp!
   icon: String!
   id: ID!
   place: String!
   temperature: Int!
-  user: AddLocation!
+  user: Location!
   userId: String!
-}
-
-type Auth {
-  accessToken: String!
-  refreshToken: String!
-  user: User!
-}
-
-input AuthUserInput {
-  email: String!
-  password: String!
-}
-
-input CreateAddLocationInput {
-  icon: String!
-  place: String!
-  temperature: Int!
 }
 
 input LoginInput {
@@ -35,17 +30,15 @@ input LoginInput {
 }
 
 type Mutation {
-  createLocation(locationData: CreateAddLocationInput!): AddLocation!
-  deleteLocation: AddLocation!
+  createLocation(locationData: CreateLocationInput!): Location!
+  deleteLocation: Location!
   login(data: LoginInput!): Auth!
   register(data: SignupInput!): Auth!
 }
 
 type Query {
-  getAuthenticatedUser(user: AuthUserInput!): User!
-  getByEmail(email: String!): User!
-  getUserFromToken(token: TokenInput!): User!
-  getUsers: User!
+  getAuthenticatedUser(user: LoginInput!): Auth!
+  getUserByToken: UserModel!
 }
 
 input SignupInput {
@@ -59,16 +52,12 @@ input SignupInput {
 """
 scalar Timestamp
 
-input TokenInput {
-  authToken: String!
-}
-
-type User {
+type UserModel {
   createdAt: Timestamp!
   email: String!
-  id: ID!
+  id: String!
   password: String!
-  searchValue: String
+  refreshToken: String!
   updatedAt: Timestamp!
   username: String!
 }

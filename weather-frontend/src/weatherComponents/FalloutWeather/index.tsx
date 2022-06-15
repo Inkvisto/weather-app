@@ -1,115 +1,76 @@
-import { ConstructionOutlined } from '@mui/icons-material'
-import React from 'react'
 import { useSelector } from 'react-redux'
-import { data } from '../../redux/redux-saga/selectors'
 import { RootState } from '../../redux/reducers/rootReducer'
-import styles from './FalloutWeather.module.scss'
-import { Scale } from './scale'
 import { languageChange } from '../../Intl/language'
+import { Scale } from '../Scale'
 
+import styles from './FalloutWeather.module.scss'
+import { WeatherDescription } from '../../redux/actionTypes/weatherData.type'
 
 
 export const FalloutWeather = () => {
-    const data = useSelector((state:RootState)=>state.data)
-    const scale = React.useRef<HTMLDivElement>(null)
-const [h,setH] = React.useState(10)
-    const precipitation = () => {
-        if(data.snow){
-            const arr = Object.entries<string>(data.snow)
-            return {snow:arr}
-        }else if(data.rain){
-            const arr = Object.entries<string>(data.rain)
-            return {rain:arr}
-        }
-        else if(data.snow && data.rain){
-            const snow = Object.entries<string>(data.snow)
-            const rain = Object.entries<string>(data.rain)
-            return {snow:snow,rain:rain}
-           
-        }
-        else{
-            return null
-        }
-    }
+    const data = useSelector((state: RootState) => state.data)
 
-    const check = () =>{
-        if(data.snow !== undefined){
-            return precipitation()!.snow
-        } else if(data.rain !== undefined){
-            return precipitation()!.rain
-        }
-        else{
-            return null
-        }
-        
-    }
+
+
+    const weatherDescription: WeatherDescription = languageChange().weather
+    const weatherArrayDescription = Object.values(weatherDescription)
 
 
 
 
-if(typeof data.wind !== 'undefined'&& data.main !== undefined && data.cod === 200){
 
-    const weatherIndicationLang = Object.values(languageChange().wind)
-    const wind = data.wind
-    const windDescription = weatherIndicationLang
-   const mainDescription = weatherIndicationLang.slice(3,5)
-   const windCheck = () => {
-       if(wind.gust === undefined){
-           return windDescription.slice(0,2)
-       }
-       return windDescription.slice(0,3)
-   }
-    return(
+    return (data.wind && data.main && (data.cod === 200) ? (
         <div className={styles.container}>
             <div className={styles.leftSide}>
-                <div className={styles.wind}>
-                
-            <ul>{windCheck().map((e:any,i)=><li key={i}>
-                {e}:
-            </li>)}</ul>
-                <ul>
-                    <li>{wind.speed}<span className={styles.speedMarks}> m/s</span></li>
-                    <li>{wind.deg}&deg;</li>
-                    {wind.gust !== undefined ?  <li>{wind.gust}<span className={styles.speedMarks}> m/s</span></li>:null}
+                <div className={styles.main}>
+                    <ul>
+                        {weatherArrayDescription.slice(0, 3).map((e: string, i: number,) =>
+                            <li key={i}>{e}:</li>
+                        )}
                     </ul>
+                    <ul>
+                        <li>{data.wind.speed}<span> m/s</span></li>
+                        <li>{data.wind.deg}<span>°</span></li>
+                        <li>{data.wind.gust}<span> m/s</span></li>
+                        <li>{data.snow && weatherArrayDescription[-1]}{data.snow?.['1h']}</li>
+                    </ul>
+                    <ul>
 
-                    </div>
-                <div style={{display:'flex',position:'absolute',top:'90px'}} >
-                <Scale scaleType='pressure' scaleSide='left'/>
-                    <Scale scaleType='humidity' scaleSide='left'/>
-                    <Scale scaleType='normal' scaleSide='left'/>
-                    <Scale scaleType='normal' scaleSide='left'/>
-                    <Scale scaleType='normal' scaleSide='left'/>
-                    <Scale scaleType='normal' scaleSide='left'/>
-                
+                    </ul>
+                </div>
+                <div style={{ display: 'flex', position: 'absolute', bottom: '10px' }} >
+                    <Scale scaleType='pressure' scaleSide='left' />
+                    <Scale scaleType='humidity' scaleSide='left' />
+                    <Scale scaleType='normal' scaleSide='left' />
+                    <Scale scaleType='normal' scaleSide='left' />
+                    <Scale scaleType='normal' scaleSide='left' />
+                    <Scale scaleType='normal' scaleSide='left' />
                 </div>
             </div>
-            
             <div className={styles.rightSide}>
-            <div className={styles.main}>
-                <ul>
-                    {mainDescription.map((e:any,i,a)=>
-                        <li key={i}>{e}:</li>
-                    )}
-                </ul>
-                <ul>
-                    <li>{data.main.pressure}<span> hPa</span></li>
-                <li>{data.main.humidity}<span>%</span></li>
-                </ul>
+                <div className={styles.main}>
+                    <ul>
+                        {weatherArrayDescription.slice(3, 5).map((e: string, i: number,) =>
+                            <li key={i}>{e}:</li>
+                        )}
+                        {data.rain && weatherArrayDescription[5] + ':'}
+                    </ul>
+                    <ul>
+                        <li>{data.main.pressure + ' hPa'}</li>
+                        <li>{data.main.humidity + '%'}</li>
+                        <li>{data.rain && (data.rain?.['1h']) + ' mm'}</li>
+                    </ul>
                 </div>
-                <div style={{display:'flex',position:'absolute',top:'90px'}}>
-                    <Scale scaleType='pressure'  scaleSide='right'/>
-                    <Scale scaleType='humidity'  scaleSide='right'/>
-                    <Scale scaleType='normal'  scaleSide='right'/>
-                    <Scale scaleType='normal'  scaleSide='right'/>
-                    <Scale scaleType='normal'  scaleSide='right'/>
-                      <Scale scaleType='normal'  scaleSide='right'/>
+                <div style={{ display: 'flex', position: 'absolute', bottom: '10px' }}>
+                    <Scale scaleType='normal' scaleSide='right' />
+                    <Scale scaleType='normal' scaleSide='right' />
+                    <Scale scaleType='normal' scaleSide='right' />
+                    <Scale scaleType='normal' scaleSide='right' />
+                    <Scale scaleType='normal' scaleSide='right' />
+                    <Scale scaleType='normal' scaleSide='right' />
                 </div>
-             <div>{check()}</div>
             </div>
         </div>
+    ) : null
     )
-}else{
-    return null
-}
 }

@@ -1,21 +1,31 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/reducers/rootReducer'
-import styles from './SideSheet.module.scss'
-export const SideSheet = () => {
 
-    const filteredTemperature = useSelector((state:RootState)=>state.filteredTemperature)
-        if( filteredTemperature.currentTemperature[0] !== undefined){
-            return (
-                <div className={styles.container}>
-                     <div className={styles.descriptionPart}><div className={styles.topEdge}></div>
-                     <i className={styles.icon}><img src={`/icons/${filteredTemperature.currentTemperature[1]}.png`} /></i><p>{filteredTemperature.currentTemperature[2]}</p></div>
-              <div className={styles.temperaturePart}><div className={styles.bottomEdge}></div><p>{filteredTemperature.currentTemperature[0]}</p></div>
+import styles from './SideSheet.module.scss'
+
+
+export const SideSheet = () => {
+    const filteredTemperature = useSelector((state: RootState) => state.filteredTemperature)
+    const data = useSelector((state: RootState) => state.data)
+
+
+    return (
+        (filteredTemperature.current !== undefined) && (data.cod === 200) ? (
+            <div className={styles.container}>
+                <article className={styles.descriptionPart}>
+                    <div className={styles.topEdge}></div>
+                    <figure>
+                        <img className={styles.icon} src={`/icons/${data.weather?.[0].icon}.png`} />
+                        <figcaption>{data.weather?.[0].description}</figcaption>
+                    </figure>
+                </article>
+                <article className={styles.temperaturePart}>
+                    <div className={styles.bottomEdge}></div>
+                    <p>{filteredTemperature.current}</p>
+                </article>
             </div>
-            )
-        }else{
-            return null
-        }
-  
+        ) : null
+    )
+
 
 }

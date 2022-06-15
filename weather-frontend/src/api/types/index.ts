@@ -8,7 +8,6 @@ export type LoginUserDto = {
     password:string;
 }
 
-
 export type ResponseUser = {
 
     accessToken:string;
@@ -30,3 +29,10 @@ export type UserFromToken = {
 export type ServerError = { 
     message: string 
 };
+
+export type User = {
+    id: string;
+    createdAt: string;
+    updatedAt:string;
+    username: string; 
+  }

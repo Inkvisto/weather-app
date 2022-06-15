@@ -1,14 +1,12 @@
 
-import React from 'react'
 import DegreeList from '../Temperature/DegreeList'
-import styles from './index.module.scss'
+
 const DailyWeather = () => {
 
-        
-    return (<div>
-        <span className={styles.text}>For the 3 days:</span>
+    return (<article>
         <DegreeList datatype={'dailyWeather'}/>
-        </div>)
+        </article>
+      )
  
 }
 

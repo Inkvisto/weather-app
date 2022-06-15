@@ -1,7 +1,7 @@
 export interface Config {
   nest: NestConfig;
   cors: CorsConfig;
-  graphql:GraphqlConfig
+  graphql: GraphqlConfig
   security: SecurityConfig;
 }
 
@@ -18,10 +18,11 @@ export interface SecurityConfig {
   refreshIn: string;
   bcryptSaltOrRound: string | number;
 }
-  
+
 export interface GraphqlConfig {
   playgroundEnabled: boolean;
   debug: boolean;
   schemaDestination: string;
   sortSchema: boolean;
- }
+  plugins: [any]
+}

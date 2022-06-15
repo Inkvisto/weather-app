@@ -2,24 +2,11 @@ import { Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-
 import { AuthService } from 'src/auth/auth.service';
+import { Request } from 'express';
+import { validateInput } from 'src/graphql/models/inputs/validate-info.input';
 
 
- interface JwtDto {
-  userId: string;
-  /**
-   * Issued at
-   */
-  iat: number;
-  /**
-   * Expiration time
-   */
-  exp: number;
-}
-
-
- 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
@@ -27,16 +14,17 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     readonly configService: ConfigService
   ) {
     super({
-      jwtFromRequest:(req) => {
+      jwtFromRequest: (req:Request) => {
         if (!req || !req.cookies) return null;
         return req.cookies['authToken'];
       },
-      ignoreExpiration:false,
+      ignoreExpiration: false,
       secretOrKey: configService.get('JWT_SECRET'),
     });
   }
 
-  async validate(payload:any): Promise<any> {
+  async validate(payload:validateInput){
+    
     return this.authService.validateUser(payload.userId)
 
   }

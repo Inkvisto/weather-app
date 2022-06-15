@@ -1,48 +1,31 @@
-import React from 'react'
-
-import {DailyWeatherData} from '../DailyWeather/DailyWeatherData'
-import styles from './DegreeList.module.scss'
-
+import { DailyWeatherData } from '../DailyWeather/DailyWeatherData'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
 
-
+import styles from './DegreeList.module.scss'
 
 type DegreeListProps = {
-  datatype:string
+  datatype: string
 }
 
-const DegreeList = ({datatype }:DegreeListProps)=> {
+const DegreeList = ({ datatype }: DegreeListProps) => {
 
-const d = useSelector((state:RootState)=>state)
+  const filteredTemperature = useSelector((state: RootState) => state.filteredTemperature)
 
-const dailyWeather = d.filteredTemperature
-const dor = d.filteredTemperature
+  if (datatype === 'data' && filteredTemperature !== undefined) {
+    return null
+  } else if (datatype === 'dailyWeather' && filteredTemperature.dailyWeather !== undefined) {        
+    return (
+      <article className={styles.container}>
+      <h4 className={styles.text}>For the 3 days:</h4>
+        <DailyWeatherData />
+      </article>
+    )
+  } else {
+    return <article style={{width:'500px',height:'404px'}}></article>
+  }
 
 
-
-if(datatype === 'data' && dor !== undefined) {
-
-const tempArray = dor.currentTemperature.slice(0,1) 
-
- //const res = dor.currentNames.concat(...tempArray)
-
-  return  <div className={styles.currentTempContainer}></div>
-} else if(datatype === 'dailyWeather' && dailyWeather !== undefined){
-   return ( 
-  <div className={styles.dailyUl}>
-     
-       
-      <DailyWeatherData />
-     
-            
-    </div>
-  )
-        }else{
-          return null
-        }
-      
- 
 };
 
 

@@ -4,8 +4,11 @@ import { userResolver } from '../graphql/resolvers/user.resolver';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
-@Module({controllers:[UserController],
-    providers:[UserService,PrismaService,userResolver],
-    exports:[UserService]
+
+@Module({
+    controllers: [UserController],
+    providers: [UserService, PrismaService, userResolver],
+    exports: [UserService]
 })
-export class UserModule {}
+
+export class UserModule { }

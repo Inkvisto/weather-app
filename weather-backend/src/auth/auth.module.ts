@@ -10,6 +10,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthResolver } from '../graphql/resolvers/auth.resolver';
 import { PasswordService } from '../security/password.service';
+import { JwtRefreshTokenStrategy } from 'src/strategies/jwt-refresh.strategy';
 
 @Module({
   imports: [
@@ -20,14 +21,11 @@ import { PasswordService } from '../security/password.service';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        secret: configService.get('JWT_SECRET'),
-        signOptions: {
-          expiresIn: '30d',
-        },
+        secret: configService.get('JWT_SECRET')
       }),
     }),
   ],
-  providers: [AuthService, LocalStrategy,PrismaService,JwtStrategy,PasswordService,AuthResolver],
+  providers: [AuthService, LocalStrategy, PrismaService, JwtStrategy, JwtRefreshTokenStrategy, PasswordService, AuthResolver],
   controllers: [AuthController]
 })
-export class AuthModule {}
+export class AuthModule { }

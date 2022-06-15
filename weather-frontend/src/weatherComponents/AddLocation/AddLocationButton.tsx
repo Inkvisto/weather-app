@@ -1,3 +1,4 @@
+import { Alert } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Input} from '../../components/Input'
@@ -9,37 +10,33 @@ import styles from './AddLocation.module.scss'
 
 
 export const AddLocationButton = () => {
-    const[keyPressValue,setKeyPressValue] = React.useState('')
-    const state = useSelector((state:RootState)=>state)
-
+  const [loginAlert,setLoginAlert] = React.useState<JSX.Element | null>()
  
     const dispatch = useDispatch()
-  
-    function showInput(){
-      //  dispatch(addLocationData())
-          
-    }
 
+    const loginSuccess = useSelector((state:RootState)=>state.loginSuccess)
+    
+    const loginCheck = () => {
+      loginSuccess.id === undefined ? setLoginAlert(<Alert severity="warning" sx={{height:15,display:'flex',alignItems:'center'}} >login first</Alert>) : setLoginAlert(null)
+    }
     const onKeyPress= (e:React.KeyboardEvent<HTMLInputElement> ) => {
-      if((e.currentTarget).value !== ''){
         if(e.key === 'Enter'){
-        setKeyPressValue((e.currentTarget).value)
+          e.preventDefault()
+          loginCheck()
+          dispatch(loadLocationSearchValue((e.currentTarget).value))
       }
-    }else if((e.currentTarget).value === ''){
-      setKeyPressValue('')
     }
-    }
-
- const onSubmit = (e:React.SyntheticEvent) => {
-   if(keyPressValue !== ''){
-  dispatch(loadLocationSearchValue(keyPressValue))
-   }
+    
+ const onSubmit = (e:any) => {
   e.preventDefault()
-   
+  loginCheck()
+   if(e.currentTarget[0].value !== '')
+  dispatch(loadLocationSearchValue(e.currentTarget[0].value))  
+ 
  }
     
 
-
+ React.useEffect(()=>{setLoginAlert(<div></div>)},[loginSuccess])
     return(
         <div className={styles.buttonMain}>
           <form onSubmit={e=>{onSubmit(e)}} >
@@ -47,6 +44,7 @@ export const AddLocationButton = () => {
           <div>
              <Input inputStyle='locationSearch' onKeyPress={onKeyPress} />
           </div>
+          {loginAlert}
             <button type='submit' className={styles.addButton}>Add Location</button>
 
             </form>

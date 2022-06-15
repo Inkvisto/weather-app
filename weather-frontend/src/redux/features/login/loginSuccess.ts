@@ -1,19 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import { User } from '../../../api/types'
+
 
 export const loginSuccessSlice = createSlice({
-    name:'currentTemperature',
-    initialState: false,
-    reducers:{
-        loadloginSuccess:(state,action)=>(
-                action.payload
-              
-            )
-        }
-})  
+    name: 'login',
+    initialState: {} as User,
+    reducers: {
+        loadloginSuccess: (state, action) => (action.payload)
+    }
+})
 
 
-
-
-export const {loadloginSuccess} = loginSuccessSlice.actions
+export const { loadloginSuccess } = loginSuccessSlice.actions
 
 export default loginSuccessSlice.reducer

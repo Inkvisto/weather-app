@@ -1,53 +1,56 @@
-.main{
+.main {
     width: 500px;
-    li{
+
+    li {
         display: flex;
         align-items: center;
         text-align: center;
         width: 440px;
         font-family: 'Noto Sans', sans-serif;
-       
         font-size: 21px;
         justify-content: space-between;
-       margin: 20px;
-       margin-left: 80px;
-       background-color: #fff;
-       border-radius: 10px;
+        margin: 20px;
+        margin-left: 80px;
+        background-color: #fff;
+        border-radius: 10px;
     }
-    
-   i{
-       background-color: rgb(188, 188, 248);
-       border-radius: 10px;
-      width: 80px;
-      height: 80px;
-       margin: 10px;
-    img{
-        position: relative;
-        top: -10px;
-        left: -10px;
+
+    figure {
+        background-color: rgb(188, 188, 248);
+        border-radius: 10px;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+
+        img {
+            position: relative;
+            top: -10px;
+            left: -10px;
+        }
+
     }
-        
-   }
- 
-   
-  div{
-    
-      p:nth-child(2){
-          width: 200px;
-        padding-top: 10px;
-        display: block;
-        color:rgb(148, 148, 148);
-        font-size: 15px;
-        word-wrap:break-word;
-      }
-  }
-    span{
+
+    div {
+
+        span:nth-child(2) {
+            width: 200px;
+            padding-top: 10px;
+            display: block;
+            color: rgb(148, 148, 148);
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+
+    }
+
+    p {
         height: 60px;
         width: 120px;
         color: #fff;
         text-align: center;
         padding-top: 40px;
         border-radius: 0px 10px 10px 0px;
-       background-color: rgb(66, 145, 121);
+        background-color: rgb(66, 145, 121);
     }
+    
 }

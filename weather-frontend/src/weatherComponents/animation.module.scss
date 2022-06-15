@@ -1,0 +1,39 @@
+@mixin animation {
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility: visible !important;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+}
+
+.container{
+   @include animation
+}
+
+.sideSheet{
+    
+    @include animation
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+  
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+  
+    100% {
+        opacity: 1;
+    }
+  }
+  

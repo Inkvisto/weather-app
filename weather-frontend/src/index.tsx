@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -10,23 +9,22 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Header from './components/Header';
 import SettingsPage from './components/Settings';
-import EnchancedApp from './components/App';
 import DragAction from './components/DragAndDrop/DragAction';
+import App from './components/App';
 
 //import {getCLS, getFID, getLCP} from 'web-vitals';
 
 
 ReactDOM.render(
   <BrowserRouter>
-  <Provider store = {store}>
-  <Routes>
-                <Route path="/" element={<EnchancedApp />}/>
-        <Route path="/about" element={<SettingsPage/>} />
-        <Route path="/settings" element={ <DragAction/>} />
+    <Provider store = {store}>
+      <Routes>
+        <Route path="/" element={<App />}/>
+        {/*<Route path="/about" element={<SettingsPage/>} />
+        <Route path="/settings" element={ <DragAction/>} /> */}
       </Routes>
-  </Provider>
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root')
 );

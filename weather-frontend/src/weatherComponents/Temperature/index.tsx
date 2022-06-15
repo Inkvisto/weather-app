@@ -8,13 +8,8 @@ import DegreeList from './DegreeList'
 
 
 export const Temperature = () => {
-
-  const state = useSelector(s=>s)
-
-
       return (
       <div className={styles.container}>
-        <DegreeList datatype={'data'}/>
         <DegreeFilter />
       </div>)
     

@@ -1,0 +1,59 @@
+.leftScaleContainer {
+  width: 1vw;
+  height: 125px;
+  margin-left: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  &:hover {
+    background-color: #a5d3c3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px #a5d3c3;
+  }
+}
+
+.rightScaleContainer {
+  width: 1vw;
+  height: 125px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgb(255, 174, 174);
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px rgb(255, 174, 174);
+  }
+}
+
+.scale {
+  border-radius: 10px;
+
+  width: 5px;
+  height: 125px;
+  background-color: rgb(197, 141, 141);
+}
+
+.inputOfScale {
+  border-radius: 10px;
+  background-color: #fff;
+  width: 5px;
+  height: 20px;
+  position: absolute;
+  bottom: 0px;
+}
+
+
+
+
+@media (max-width:1480px) {
+  .rightScaleContainer {
+    margin-left: 17px;
+  }
+
+  .leftScaleContainer {
+    margin-left: 17px;
+  }
+}

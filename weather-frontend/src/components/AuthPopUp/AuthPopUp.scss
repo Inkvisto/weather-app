@@ -1,149 +1,148 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-top: 30px;
+}
 
-.content{
+.settings {
+    position: relative;
+    right: 20px;
+}
+
+.content {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.form{
+.form {
     padding: 25px;
     height: 250px;
     width: 380px;
-   p{
-       font-family: 'Noto Sans';
-       
-   }
+
+    span {
+        font-family: 'Noto Sans';
+
+    }
 }
-.loginButton{
-    position: absolute;
-    right: -100px;
+
+.loginButton {
     width: 180px;
+    margin-right: 20px;
     background-color: #ffa7a7;
     color: #fff;
     font-family: 'Noto Sans';
     font-size: 22px;
     padding: 10px 40px;
-    border:none;
+    border: none;
     border-radius: 15px;
-    margin-top: 30px;
     box-shadow: 10px 7px 10px rgb(0 0 0 / 20%);
-    &:hover{
+
+    &:hover {
         color: #ce6a6a;
     }
- 
+
 }
 
-.displayNoneLoginButton{
+.displayNoneLoginButton {
     display: none;
 }
 
-.registerText{
+.registerText {
     font-family: 'Noto Sans';
     font-size: 20px;
-    color:grey;
-    display: flex; 
-    justify-content: center;  
+    color: grey;
+    display: flex;
+    justify-content: center;
 }
 
-.registerLink{
-    span{
-        color:#1976d2; 
-    }
-       
-    
-      
-}
-
-.loginText{
-    font-family: 'Noto Sans';
-    font-size: 20px;
-    color:grey;
-    display: flex; 
-    justify-content: center;  
-}
-
-.avatar{
-    position: relative;
-    top:25px;
-    left: 170px;
-
-}
-
-.loginLink{
-    text{
-        color:#1976d2; 
+.registerLink {
+    span {
+        color: #1976d2;
     }
 }
 
-.usernameContainer{
-    display: flex; 
-    justify-content: center;  
+.loginText {
+    font-family: 'Noto Sans';
+    font-size: 20px;
+    color: grey;
+    display: flex;
+    justify-content: center;
 }
 
-.emailContainer{
+.loginLink {
+    text {
+        color: #1976d2;
+    }
+}
 
-      
+.usernameContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.emailContainer {
+
+
     margin-top: 25px;
-    display: flex; 
-    justify-content: center;  
+    display: flex;
+    justify-content: center;
 }
 
-.passwordContainer{
+.passwordContainer {
     display: flex;
     justify-content: center;
     margin-top: 25px;
 }
-.requiredError{
+
+.requiredError {
     font-family: 'Noto Sans';
     font-size: 15px;
     position: absolute;
     margin: 20px;
 }
 
-
-
-
-
-
-#emailInput{
+#emailInput {
     width: 320px;
     padding: 12px;
     font-size: 16px;
-    
+
 }
 
-#passwordInput{
+#passwordInput {
     padding: 12px;
     font-size: 16px;
     width: 320px;
 }
 
-#usernameInput{
+#usernameInput {
     width: 320px;
     padding: 12px;
     font-size: 16px;
 }
 
-.error{
-    color:red;
+.error {
+    color: red;
     position: relative;
     margin-left: 20px;
     margin-top: 5px;
     font-size: 14px;
-    
+
 }
 
 .logoutButton {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
-.menu{
-   position: relative;
-   right: 100px;
+.menu {
+    position: relative;
+    right: 100px;
 }
