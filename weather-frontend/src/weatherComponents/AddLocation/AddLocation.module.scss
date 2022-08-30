@@ -1,12 +1,13 @@
 @import '../animation.module.scss';
 
-.container{
+.container {
     width: 420px;
     background-color: #fff;
     border-radius: 15px;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+
     figure {
         background-color: rgb(119, 190, 168);
         padding: 10px;
@@ -47,9 +48,10 @@
         align-self: center;
     }
 }
+
 .main {
     width: 420px;
-    
+
     .buttonMain {
         form {
             display: grid;
@@ -91,7 +93,7 @@
 
 @media (max-width:1780px) {
     .middleBlock {
-     
+
         right: 600px;
     }
 
@@ -111,5 +113,46 @@
     }
 }
 
+@media (max-width:1160px) {
+    .container {
+        width: 380px;
+    }
+
+    .main {
+        width: 380px;
+    }
+}
 
 
+
+@media (max-width:960px) {
+    .middleBlock {
+        display: block;
+        position: relative;
+        top: 0px;
+        right: 0px;
+    }
+
+    .rightBlock {
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+
+    .blocksMain {
+        display: flex;
+        position: relative;
+        right: 170px;
+    }
+
+    .main {
+        margin: 0px 0px 20px 60px;
+        width: 440px;
+    }
+}
+
+@media (max-width:840px) {
+    .blocksMain {
+        display: block;
+        left: 20px;
+    }
+}

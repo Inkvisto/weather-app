@@ -1,9 +1,7 @@
-import { AxiosResponse } from 'axios';
+
 import { call, CallEffect, CancelEffect, ForkEffect, put, PutEffect, select, SelectEffect, TakeEffect } from 'redux-saga/effects'
 
-
 import { AddLocationApi } from '../../../api/AddLocation.api';
-import { User } from '../../../api/types';
 import { language } from '../../../Intl/language';
 import { Weather } from '../../actionTypes/weatherData.type';
 import { loadLocationWeather } from '../../features/weather/LocationWeather';

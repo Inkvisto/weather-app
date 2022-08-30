@@ -1,6 +1,4 @@
 .main {
-    width: 500px;
-
     li {
         display: flex;
         align-items: center;
@@ -52,5 +50,40 @@
         border-radius: 0px 10px 10px 0px;
         background-color: rgb(66, 145, 121);
     }
-    
+
+}
+
+
+
+@media (max-width:1160px) {
+    .main {
+        li {
+            width: 340px;
+        }
+
+        div {
+            span:nth-child(2) {
+                width: 120px;
+            }
+
+        }
+
+    }
+}
+
+@media (max-width:960px) {
+
+    .main {
+        li {
+            width: 440px;
+        }
+
+        div {
+            span:nth-child(2) {
+                width: 200px;
+            }
+
+        }
+
+    }
 }

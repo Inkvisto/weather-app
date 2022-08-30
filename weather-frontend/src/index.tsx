@@ -9,8 +9,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import SettingsPage from './components/Settings';
-import DragAction from './components/DragAndDrop/DragAction';
 import App from './components/App';
 
 //import {getCLS, getFID, getLCP} from 'web-vitals';

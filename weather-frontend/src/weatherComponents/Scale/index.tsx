@@ -14,7 +14,6 @@ interface ScaleProps {
 export const Scale = ({ scaleType, scaleSide }: ScaleProps) => {
 
    const [sideStyles, setSideStyles] = React.useState('')
-   const [scaleHovering, setScaleHovering]: any = React.useState()
    const scale = React.useRef<HTMLDivElement>(null)
 
    const data = useSelector((state: RootState) => state.data)
@@ -43,7 +42,7 @@ export const Scale = ({ scaleType, scaleSide }: ScaleProps) => {
       } else {
          setSideStyles('leftScaleContainer')
       }
-   }, [])
+   }, [scaleSide])
 
    React.useEffect(() => {
 
@@ -61,7 +60,7 @@ export const Scale = ({ scaleType, scaleSide }: ScaleProps) => {
             if (scale.current !== null) scale.current.style.height = `${randomHeight(30, 100)}px`
          }
       }
-   }, [data])
+   }, [data,scaleType])
 
 
    return (

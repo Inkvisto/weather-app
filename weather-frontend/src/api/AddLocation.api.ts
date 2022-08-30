@@ -5,9 +5,7 @@ import { RegisterUserDto, LoginUserDto, CreateLocationDto} from './types'
 const  baseURL = 'http://localhost:5555/'
 
 export const AddLocationApi = {
-    async register(dto:RegisterUserDto):Promise<any>{
-        console.log(await axios({method:'post',url:baseURL+'auth/register',withCredentials:true,data:dto}));
-        
+    async register(dto:RegisterUserDto):Promise<any>{        
         return axios({method:'post',url:baseURL+'auth/register',withCredentials:true,data:dto})
     },
     async login(dto:LoginUserDto):Promise<any>{      

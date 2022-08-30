@@ -1,4 +1,4 @@
-import {call,takeEvery,select,fork, spawn, all} from 'redux-saga/effects'
+import {call,takeEvery,select, spawn, all} from 'redux-saga/effects'
 
 import {cityName, coords, daily, locationName} from './selectors'
 

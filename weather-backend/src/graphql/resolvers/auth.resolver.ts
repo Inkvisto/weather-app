@@ -5,6 +5,10 @@ import { AuthService } from "../../auth/auth.service";
 import { SignupInput } from "../models/inputs/signup.input";
 import { UserModel } from "../models/user.model";
 import { LoginInput } from "../models/inputs/logininput";
+import { GraphqlUserEntity, UserEntity } from "src/decorators/user.decorator";
+import { Res, UseGuards } from "@nestjs/common";
+import { Response } from "express";
+
 
 @Resolver(()=>UserModel)
 export class AuthResolver {
@@ -19,21 +23,14 @@ export class AuthResolver {
       return {user}
     }
 
+   
     @Mutation(() => Auth)
-    async login(@Args('data') { email, password }: LoginInput) {
-      const user = await this.auth.login(
+    async login(@Res({ passthrough: true }) response: Response,@Args('data') { email, password }: LoginInput) {
+      const token = await this.auth.login(
         email.toLowerCase(),
         password
       );
-      return user
+      return token
     }
 
-
-
-    @Query(()=>Auth)
-    async getAuthenticatedUser(@Args('user') {email,password}:LoginInput):Promise<UserModel>{
-      return await this.auth.getAuthenticatedUser(email,password)
-      
-    }
-     
 }

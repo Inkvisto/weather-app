@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma/prisma.service';
+
 import { UserService } from './user/user.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
@@ -9,10 +9,17 @@ import { DateScalarMode, GraphQLModule, NumberScalarMode } from '@nestjs/graphql
 import { GraphqlConfig } from './configs/config.interface';
 import { loggingMiddleware } from './prisma/logging.middleware';
 import { ApolloDriver } from '@nestjs/apollo';
-
 import config from './configs/config';
 import { LocationModule } from './location/location.module';
 
+import { PrismaClient } from '@prisma/client';
+import { PrismaService } from './prisma/prisma.service';
+
+
+interface Context {
+  prisma: PrismaClient;
+}
+const prisma = new PrismaClient();
 
 @Module({
   imports: [
@@ -47,6 +54,7 @@ import { LocationModule } from './location/location.module';
       },
       inject: [ConfigService],
     }),
+  
     LocationModule, AuthModule, UserModule,
   ],
   controllers: [],

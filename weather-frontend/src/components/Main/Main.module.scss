@@ -1,7 +1,21 @@
-.container{
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+.container {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
+@media (max-width:960px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  article {
+    article {
+      margin-top: 20px;
+    }
+  }
+}

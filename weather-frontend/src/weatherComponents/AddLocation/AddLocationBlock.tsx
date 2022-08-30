@@ -27,7 +27,7 @@ export const AddLocationBlock = () => {
     if (locationData.location !== undefined && locationTemperature !== undefined && loginSuccess !== null) {
         let locations = locationData.location.flat().map((e: any, i: any) => {
             return (<div className={styles.container}>
-                <figure><img src={`/icons/${e.icon}.png`} /></figure>
+                <figure><img src={`/icons/${e.icon}.png`} alt='icons not loaded' /></figure>
                 <p>{locationTemperature.temperature[i]}</p>
                 <div>{e.place}</div>
                 <span onClick={(event) => deleteLocation(e, event)}><CloseIcon /></span>

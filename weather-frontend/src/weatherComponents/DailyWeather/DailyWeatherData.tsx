@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { language } from '../../Intl/language'
 import { RootState } from '../../redux/reducers/rootReducer'
@@ -19,9 +18,9 @@ export const DailyWeatherData = () => {
             daily.dataTime.map((e:number, i:number) => {
                 const day = new Date(daily.dataTime[i] * 1000).toLocaleString(language, { 'weekday': 'long' })
                 const upperLetterDay = day.charAt(0).toUpperCase() + day.slice(1)
-                arr.push(
+                return arr.push(
                     <li>
-                        <figure><img src={`/icons/${daily.icons[i]}.png`} /></figure>
+                        <figure><img src={`/icons/${daily.icons[i]}.png`} alt='icons not loaded' /></figure>
                         <div>
                             <span>{upperLetterDay}</span>
                             <span> {daily.description[i]}</span>

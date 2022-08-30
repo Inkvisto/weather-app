@@ -15,7 +15,7 @@ export const SideSheet = () => {
                 <article className={styles.descriptionPart}>
                     <div className={styles.topEdge}></div>
                     <figure>
-                        <img className={styles.icon} src={`/icons/${data.weather?.[0].icon}.png`} />
+                        <img className={styles.icon} src={`/icons/${data.weather?.[0].icon}.png`} alt='icons not loaded' />
                         <figcaption>{data.weather?.[0].description}</figcaption>
                     </figure>
                 </article>

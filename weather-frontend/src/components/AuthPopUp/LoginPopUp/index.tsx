@@ -18,11 +18,6 @@ interface LoginPopUpProps {
   getUserAtLogin:(user: User) => void
 }
 
-interface AlertMessage {
-
-}
-
-
 export const LoginPopUp = ({ getUserAtLogin }: LoginPopUpProps) => {
   const [alertMessage, setAllertMessage] = React.useState<React.CSSProperties>({display:'none'})
   const [errorText, setErrorText] = React.useState<string>()

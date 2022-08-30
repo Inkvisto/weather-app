@@ -26,7 +26,9 @@ const RegisterPopUp = ({ loginRedirect }: RegisterPopUpProps) => {
   const onRegisterSubmit = async (dto: RegisterUserDto) => {
     try {
       const data = await AddLocationApi.register(dto)
-      if (data !== undefined) {
+ 
+     
+    if (data !== undefined) {
         loginRedirect()
       }
     } catch (error) {

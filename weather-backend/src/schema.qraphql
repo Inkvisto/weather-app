@@ -32,12 +32,12 @@ input LoginInput {
 type Mutation {
   createLocation(locationData: CreateLocationInput!): Location!
   deleteLocation: Location!
+  deleteUser: UserModel!
   login(data: LoginInput!): Auth!
   register(data: SignupInput!): Auth!
 }
 
 type Query {
-  getAuthenticatedUser(user: LoginInput!): Auth!
   getUserByToken: UserModel!
 }
 
